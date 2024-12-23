@@ -21,24 +21,24 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
-const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+const dancePrograms = [
+  ['Marinera Norteña', logoPhobiaLight],
+  ['Marinera Limeña', logoFamilyFund],
+  ['Festejo', logoUnseal],
+  ['Huayno', logoMailSmirk],
+  ['Salsa', logoHomeWork],
+  ['Bachata', logoGreenLife],
+  ['Cumbia', logoBrightPath],
+  ['Folklore', logoNorthAdventures],
 ]
 
-function Clients() {
+function DancePrograms() {
   return (
     <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We've worked with hundreds of amazing people
+            Discover our diverse dance programs
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -47,10 +47,14 @@ function Clients() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
+            {dancePrograms.map(([program]) => (
+              <li key={program}>
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+                  <div className="rounded-2xl border border-neutral-800 p-4 hover:border-neutral-600 transition-colors">
+                    <span className="font-display text-lg font-semibold text-white block text-center">
+                      {program}
+                    </span>
+                  </div>
                 </FadeIn>
               </li>
             ))}
@@ -69,13 +73,11 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="Celebrating Culture Through Dance"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+          Join us in preserving and celebrating the rich traditions of Peruvian and Latin American dance, where every step tells a story and every movement carries centuries of culture.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -86,12 +88,9 @@ function CaseStudies({
                 <h3>
                   <Link href={caseStudy.href}>
                     <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.title}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
+                    <span className="font-display text-base font-semibold text-neutral-950">
+                      {caseStudy.client}
+                    </span>
                   </Link>
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
@@ -104,7 +103,7 @@ function CaseStudies({
                   <span className="text-neutral-300" aria-hidden="true">
                     /
                   </span>
-                  <span>Case study</span>
+                  <span>{caseStudy.service}</span>
                 </p>
                 <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
                   {caseStudy.title}
@@ -146,10 +145,10 @@ function Services() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Marinera">
-              Our flagship program featuring Peru's most elegant couple dance. Learn both Marinera Norteña and Limeña styles from certified instructors.
+              Our flagship program featuring Peru&apos;s most elegant couple dance. Learn both Marinera Norteña and Limeña styles from certified instructors.
             </ListItem>
             <ListItem title="Peruvian Folklore">
-              Explore the rich diversity of Peruvian dance, including Festejo, Huayno, and other traditional dances that tell the story of Peru's cultural heritage.
+              Explore the rich diversity of Peruvian dance, including Festejo, Huayno, and other traditional dances that tell the story of Peru&apos;s cultural heritage.
             </ListItem>
             <ListItem title="Latin Dance">
               Master the rhythm and passion of Salsa and Bachata with our experienced instructors. Perfect for beginners and advanced dancers alike.
@@ -166,7 +165,7 @@ function Services() {
 
 export const metadata: Metadata = {
   description:
-    'Premier Latin American dance school specializing in Peruvian dances and Latin rhythms.',
+    'Vinazza - El Arte de Bailar: Premier Latin American dance school specializing in Peruvian dances and Latin rhythms.',
 }
 
 export default async function Home() {
@@ -177,23 +176,23 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Authentic Peruvian & Latin American Dance School
+            Vinazza - El Arte de Bailar
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Immerse yourself in the beauty and passion of Latin American dance. From the elegant Marinera to the rhythmic Salsa, we bring authentic dance traditions to life.
+            Experience the authentic spirit of Peruvian and Latin American dance. From the elegant Marinera to vibrant Latin rhythms, we bring traditional dances to life with passion and expertise.
           </p>
         </FadeIn>
       </Container>
 
-      <Clients />
+      <DancePrograms />
 
       <CaseStudies caseStudies={caseStudies} />
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Student', logo: logoPhobiaDark }}
+        client={{ name: 'Vinazza Student', logo: logoPhobiaDark }}
       >
-        The instructors are not only skilled dancers but also passionate about sharing our culture. Thanks to them, I've learned not just the steps, but the history and meaning behind each dance.
+        At Vinazza, the instructors are not only skilled dancers but also passionate about sharing our culture. Thanks to them, I&apos;ve learned not just the steps, but the history and meaning behind each dance.
       </Testimonial>
 
       <Services />
